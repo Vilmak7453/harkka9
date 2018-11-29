@@ -8,6 +8,7 @@ var thingController = require("./scripts/controllers/thingController");
 const PORT = 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/dist'));
 
 //Set mongoose connection
@@ -31,6 +32,12 @@ app.get("/bestlist", function(req, res) {
 
 	res.render("bestlist", {title: "Kivoja asioita"});
 });
+
+app.post("/bestlist", function(req, res) {
+
+	res.render("bestlist", {title: "Kivoja asioita"});
+});
+
 
 app.post("/addThing", function(req, res) {
 
